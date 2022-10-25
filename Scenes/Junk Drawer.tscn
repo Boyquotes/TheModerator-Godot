@@ -1,0 +1,371 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://Scripts/JunkDrawerTween.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Control.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Vector/uipackSpace_vector.svg" type="Texture" id=3]
+[ext_resource path="res://Materials/Fonts/RegularFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Materials/Themes/PrototypeTheme.tres" type="Theme" id=5]
+[ext_resource path="res://Assets/Vector/favorite_FILL0_wght400_GRAD0_opsz48.svg" type="Texture" id=6]
+[ext_resource path="res://Assets/Vector/person_FILL0_wght400_GRAD0_opsz48.svg" type="Texture" id=7]
+[ext_resource path="res://Materials/ThumbsUp.tres" type="Texture" id=8]
+[ext_resource path="res://Materials/ThumbsUpPressed.tres" type="Texture" id=9]
+[ext_resource path="res://Scripts/JunkDrawerTree.gd" type="Script" id=10]
+[ext_resource path="res://Materials/Panels/Junk Drawer.tres" type="Texture" id=11]
+[ext_resource path="res://Assets/Spritesheets/UI/Prototype Theme.tres" type="Theme" id=12]
+[ext_resource path="res://Assets/Fonts/kenvector_future_thin.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://Assets/Vector/Basic Toolbar.svg" type="Texture" id=14]
+[ext_resource path="res://Materials/ThumbsDown.tres" type="Texture" id=15]
+[ext_resource path="res://Materials/ThumbsDownPressed.tres" type="Texture" id=16]
+[ext_resource path="res://Materials/Buttons/YellowButtonUp.tres" type="StyleBox" id=17]
+[ext_resource path="res://Materials/Buttons/YellowButtonDown.tres" type="StyleBox" id=18]
+[ext_resource path="res://Materials/Panels/Window.tres" type="StyleBox" id=19]
+[ext_resource path="res://Assets/Fonts/Signika Negative/static/SignikaNegative-Medium.ttf" type="DynamicFontData" id=20]
+[ext_resource path="res://Scripts/JobSim.gd" type="Script" id=21]
+[ext_resource path="res://Scripts/PostTween.gd" type="Script" id=22]
+[ext_resource path="res://Scripts/JunkDrawer.gd" type="Script" id=23]
+
+[sub_resource type="Gradient" id=5]
+interpolation_mode = 2
+offsets = PoolRealArray( 0, 0.24498, 0.497992, 0.831325 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.488281, 0.488281, 0.488281, 1, 1, 1, 1, 1, 0.0585938, 0.0553894, 0.0553894, 1 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( -1, 1003, 1920, 76 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 44
+font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 20
+outline_size = 2
+outline_color = Color( 0.231373, 0.231373, 0.231373, 1 )
+font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 36
+font_data = ExtResource( 20 )
+
+[node name="Scene Root" type="Node2D"]
+script = ExtResource( 21 )
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -440.0
+margin_top = -935.0
+margin_right = 3560.0
+margin_bottom = 3065.0
+texture = SubResource( 6 )
+expand = true
+
+[node name="Desktop" type="Control" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+script = ExtResource( 2 )
+
+[node name="Center" type="CenterContainer" parent="Desktop"]
+anchor_top = 0.000925926
+anchor_right = 1.00104
+anchor_bottom = 0.998148
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="WindowPanel" type="PanelContainer" parent="Desktop/Center"]
+margin_left = 360.0
+margin_top = 138.0
+margin_right = 1560.0
+margin_bottom = 938.0
+rect_min_size = Vector2( 1200, 800 )
+custom_styles/panel = SubResource( 3 )
+
+[node name="Window" type="NinePatchRect" parent="Desktop/Center/WindowPanel"]
+margin_right = 1200.0
+margin_bottom = 800.0
+rect_min_size = Vector2( 1200, 800 )
+texture = ExtResource( 3 )
+region_rect = Rect2( 549, 259, 100, 100 )
+patch_margin_left = 11
+patch_margin_top = 32
+patch_margin_right = 11
+patch_margin_bottom = 11
+
+[node name="Panel" type="Panel" parent="Desktop/Center/WindowPanel/Window"]
+anchor_left = 0.00666667
+anchor_top = 0.045
+anchor_right = 0.988333
+anchor_bottom = 0.9825
+size_flags_horizontal = 3
+theme = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="Desktop/Center/WindowPanel/Window/Panel"]
+margin_left = 1.0
+margin_right = 1173.0
+margin_bottom = 621.0
+rect_min_size = Vector2( 500, 300 )
+size_flags_vertical = 3
+
+[node name="Post" type="VBoxContainer" parent="Desktop/Center/WindowPanel/Window/Panel/CenterContainer"]
+modulate = Color( 0, 0.388235, 0, 1 )
+margin_left = 336.0
+margin_top = 159.0
+margin_right = 836.0
+margin_bottom = 461.0
+script = ExtResource( 22 )
+
+[node name="PostBody" type="RichTextLabel" parent="Desktop/Center/WindowPanel/Window/Panel/CenterContainer/Post"]
+margin_right = 500.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 500, 250 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = ExtResource( 4 )
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.  "
+
+[node name="LikeIcon" type="TextureRect" parent="Desktop/Center/WindowPanel/Window/Panel/CenterContainer/Post"]
+margin_top = 254.0
+margin_right = 500.0
+margin_bottom = 302.0
+texture = ExtResource( 6 )
+
+[node name="LikeCount" type="Label" parent="Desktop/Center/WindowPanel/Window/Panel/CenterContainer/Post/LikeIcon"]
+margin_left = 58.0
+margin_top = 8.0
+margin_right = 170.0
+margin_bottom = 39.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "420 likes"
+
+[node name="Banhammer" type="HBoxContainer" parent="Desktop/Center/WindowPanel/Window/Panel"]
+margin_left = 3.0
+margin_top = 538.0
+margin_right = 1172.0
+margin_bottom = 743.0
+rect_min_size = Vector2( 1013, 205 )
+size_flags_vertical = 3
+
+[node name="Ban" type="CenterContainer" parent="Desktop/Center/WindowPanel/Window/Panel/Banhammer"]
+margin_right = 582.0
+margin_bottom = 205.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BanButton" type="TextureButton" parent="Desktop/Center/WindowPanel/Window/Panel/Banhammer/Ban"]
+margin_left = 207.0
+margin_top = 22.0
+margin_right = 375.0
+margin_bottom = 182.0
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 16 )
+texture_hover = ExtResource( 15 )
+
+[node name="Keep" type="CenterContainer" parent="Desktop/Center/WindowPanel/Window/Panel/Banhammer"]
+margin_left = 586.0
+margin_right = 1169.0
+margin_bottom = 205.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="KeepButton" type="TextureButton" parent="Desktop/Center/WindowPanel/Window/Panel/Banhammer/Keep"]
+margin_left = 207.0
+margin_top = 22.0
+margin_right = 376.0
+margin_bottom = 183.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 8 )
+
+[node name="VSplitContainer" type="VBoxContainer" parent="Desktop/Center/WindowPanel/Window"]
+margin_left = 13.0
+margin_top = 86.0
+margin_right = 221.0
+margin_bottom = 786.0
+
+[node name="TextureRect" type="TextureRect" parent="Desktop/Center/WindowPanel/Window/VSplitContainer"]
+margin_right = 208.0
+margin_bottom = 144.0
+rect_min_size = Vector2( 128, 128 )
+texture = ExtResource( 7 )
+stretch_mode = 4
+
+[node name="Name" type="RichTextLabel" parent="Desktop/Center/WindowPanel/Window/VSplitContainer"]
+margin_top = 148.0
+margin_right = 208.0
+margin_bottom = 700.0
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = ExtResource( 4 )
+bbcode_enabled = true
+bbcode_text = "[center]John Doe[/center]"
+text = "John Doe"
+
+[node name="Junk Drawer" type="NinePatchRect" parent="Desktop"]
+visible = false
+anchor_left = 0.66875
+anchor_top = 0.0101852
+anchor_right = 0.994271
+anchor_bottom = 0.922222
+texture = ExtResource( 11 )
+patch_margin_left = 14
+patch_margin_top = 30
+patch_margin_right = 51
+patch_margin_bottom = 13
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Content" type="VBoxContainer" parent="Desktop/Junk Drawer"]
+anchor_top = 0.048
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 11.0
+margin_top = 10.064
+margin_right = -11.0
+margin_bottom = -16.0
+
+[node name="TabContainer" type="TabContainer" parent="Desktop/Junk Drawer/Content"]
+margin_right = 603.0
+margin_bottom = 911.0
+size_flags_vertical = 3
+tab_align = 0
+script = ExtResource( 23 )
+
+[node name="Context" type="Tree" parent="Desktop/Junk Drawer/Content/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.0
+margin_top = 38.0
+margin_right = -6.0
+margin_bottom = -10.0
+
+[node name="Short" type="Tree" parent="Desktop/Junk Drawer/Content/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.0
+margin_top = 38.0
+margin_right = -6.0
+margin_bottom = -10.0
+size_flags_vertical = 3
+hide_folding = true
+script = ExtResource( 10 )
+
+[node name="Long" type="Tree" parent="Desktop/Junk Drawer/Content/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+size_flags_vertical = 3
+hide_folding = true
+script = ExtResource( 10 )
+
+[node name="Title" type="RichTextLabel" parent="Desktop/Junk Drawer"]
+anchor_top = 0.007
+anchor_right = 0.814
+anchor_bottom = 0.043
+margin_left = 35.695
+margin_top = 0.926
+margin_right = -16.321
+margin_bottom = 0.973999
+theme = ExtResource( 12 )
+bbcode_enabled = true
+bbcode_text = "[center]Junk Drawer[/center]"
+text = "Junk Drawer"
+
+[node name="TextureRect" type="TextureRect" parent="Desktop"]
+margin_left = -11.0
+margin_top = 1007.0
+margin_right = 1937.0
+margin_bottom = 1099.0
+texture = SubResource( 4 )
+expand = true
+
+[node name="Time" type="Label" parent="Desktop/TextureRect"]
+margin_left = 46.0
+margin_top = 14.0
+margin_right = 203.0
+margin_bottom = 66.0
+custom_fonts/font = SubResource( 7 )
+text = "9:30"
+
+[node name="Button2" type="Button" parent="Desktop"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -169.0
+margin_top = 1025.0
+margin_right = -41.0
+margin_bottom = 1059.0
+theme = ExtResource( 5 )
+custom_fonts/font = SubResource( 8 )
+custom_styles/hover = ExtResource( 17 )
+custom_styles/pressed = ExtResource( 18 )
+custom_styles/focus = ExtResource( 17 )
+custom_styles/normal = ExtResource( 17 )
+text = "Junk Drawer"
+
+[node name="ShiftEndPopUp" type="CenterContainer" parent="."]
+visible = false
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 1921.0
+margin_bottom = 1081.0
+rect_min_size = Vector2( 1920, 1080 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel" type="Panel" parent="ShiftEndPopUp"]
+margin_left = 560.0
+margin_top = 240.0
+margin_right = 1360.0
+margin_bottom = 840.0
+rect_min_size = Vector2( 800, 600 )
+theme = ExtResource( 5 )
+custom_styles/panel = ExtResource( 19 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShiftEndPopUp/Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -163.5
+margin_top = -167.5
+margin_right = 163.5
+margin_bottom = 167.5
+
+[node name="Label" type="Label" parent="ShiftEndPopUp/Panel/VBoxContainer"]
+margin_top = 126.0
+margin_right = 327.0
+margin_bottom = 171.0
+size_flags_vertical = 6
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 9 )
+text = "Shift Complete!"
+align = 1
+
+[node name="Button" type="Button" parent="ShiftEndPopUp/Panel/VBoxContainer"]
+margin_top = 301.0
+margin_right = 327.0
+margin_bottom = 335.0
+text = "Continue"
+
+[connection signal="pressed" from="Desktop/Center/WindowPanel/Window/Panel/Banhammer/Ban/BanButton" to="." method="_on_post_ban"]
+[connection signal="pressed" from="Desktop/Center/WindowPanel/Window/Panel/Banhammer/Keep/KeepButton" to="." method="_on_post_keep"]
+[connection signal="pressed" from="Desktop/Button2" to="Desktop/Junk Drawer" method="on_button_press"]
