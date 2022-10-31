@@ -9,6 +9,8 @@ var viewport
 var open : bool = false
 onready var title = get_node("Title")
 onready var content = get_node("Content")
+onready var open_drawer = get_node("OpenDrawer")
+onready var close_drawer = get_node("CloseDrawer")
 
 func _ready():
 	VIEW_X = rect_size.x
@@ -19,11 +21,6 @@ func _ready():
 	rect_position = Vector2(viewport.x, POS_Y)
 	visible = true
 
-		
-func _debug_viewport():
-	print(VIEW_X)
-	print(VIEW_Y)
-	
 func on_button_press():
 	if open:
 		var tween := create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
@@ -33,6 +30,7 @@ func on_button_press():
 		tween.tween_property(self, "rect_size", Vector2(0, VIEW_Y), 0.75)
 		tween2.tween_property(self, "rect_position", Vector2(viewport.x, POS_Y), 0.75)
 		open = !open
+		close_drawer.play()
 	else:
 		var tween := create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 		var tween2 := create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
@@ -42,6 +40,7 @@ func on_button_press():
 		title.visible = true
 		content.visible = true
 		open = !open
+		open_drawer.play()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

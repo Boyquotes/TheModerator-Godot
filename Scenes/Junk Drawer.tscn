@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Scripts/JunkDrawerTween.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Control.gd" type="Script" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://Assets/Vector/person_FILL0_wght400_GRAD0_opsz48.svg" type="Texture" id=7]
 [ext_resource path="res://Materials/ThumbsUp.tres" type="Texture" id=8]
 [ext_resource path="res://Materials/ThumbsUpPressed.tres" type="Texture" id=9]
-[ext_resource path="res://Scripts/JunkDrawerTree.gd" type="Script" id=10]
 [ext_resource path="res://Materials/Panels/Junk Drawer.tres" type="Texture" id=11]
 [ext_resource path="res://Assets/Spritesheets/UI/Prototype Theme.tres" type="Theme" id=12]
 [ext_resource path="res://Assets/Fonts/kenvector_future_thin.ttf" type="DynamicFontData" id=13]
@@ -23,10 +22,15 @@
 [ext_resource path="res://Scripts/JobSim.gd" type="Script" id=21]
 [ext_resource path="res://Scripts/PostTween.gd" type="Script" id=22]
 [ext_resource path="res://Scripts/JunkDrawer.gd" type="Script" id=23]
+[ext_resource path="res://Assets/Sounds/switch38.ogg" type="AudioStream" id=24]
+[ext_resource path="res://Assets/Sounds/cardTakeOutPackage2.ogg" type="AudioStream" id=25]
+[ext_resource path="res://Assets/Sounds/cardTakeOutPackage1.ogg" type="AudioStream" id=26]
+[ext_resource path="res://Assets/Sounds/officeAmbience.ogg" type="AudioStream" id=27]
+[ext_resource path="res://Scripts/NotificationDrawer.gd" type="Script" id=28]
 
 [sub_resource type="Gradient" id=5]
 interpolation_mode = 2
-offsets = PoolRealArray( 0, 0.24498, 0.497992, 0.831325 )
+offsets = PoolRealArray( 0.144876, 0.363958, 0.590106, 0.831325 )
 colors = PoolColorArray( 0, 0, 0, 1, 0.488281, 0.488281, 0.488281, 1, 1, 1, 1, 1, 0.0585938, 0.0553894, 0.0553894, 1 )
 
 [sub_resource type="GradientTexture" id=6]
@@ -61,10 +65,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -440.0
-margin_top = -935.0
-margin_right = 3560.0
-margin_bottom = 3065.0
+margin_left = -563.0
+margin_top = -678.0
+margin_right = 3437.0
+margin_bottom = 3322.0
 texture = SubResource( 6 )
 expand = true
 
@@ -213,7 +217,6 @@ bbcode_text = "[center]John Doe[/center]"
 text = "John Doe"
 
 [node name="Junk Drawer" type="NinePatchRect" parent="Desktop"]
-visible = false
 anchor_left = 0.66875
 anchor_top = 0.0101852
 anchor_right = 0.994271
@@ -262,7 +265,6 @@ margin_right = -6.0
 margin_bottom = -10.0
 size_flags_vertical = 3
 hide_folding = true
-script = ExtResource( 10 )
 
 [node name="Long" type="Tree" parent="Desktop/Junk Drawer/Content/TabContainer"]
 visible = false
@@ -274,7 +276,6 @@ margin_right = -4.0
 margin_bottom = -4.0
 size_flags_vertical = 3
 hide_folding = true
-script = ExtResource( 10 )
 
 [node name="Title" type="RichTextLabel" parent="Desktop/Junk Drawer"]
 anchor_top = 0.007
@@ -289,13 +290,22 @@ bbcode_enabled = true
 bbcode_text = "[center]Junk Drawer[/center]"
 text = "Junk Drawer"
 
+[node name="CloseDrawer" type="AudioStreamPlayer" parent="Desktop/Junk Drawer"]
+stream = ExtResource( 25 )
+
+[node name="OpenDrawer" type="AudioStreamPlayer" parent="Desktop/Junk Drawer"]
+stream = ExtResource( 26 )
+
 [node name="TextureRect" type="TextureRect" parent="Desktop"]
-margin_left = -11.0
-margin_top = 1007.0
-margin_right = 1937.0
-margin_bottom = 1099.0
+anchor_left = -0.00572917
+anchor_top = 0.932407
+anchor_right = 1.00885
+anchor_bottom = 1.01759
 texture = SubResource( 4 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="Time" type="Label" parent="Desktop/TextureRect"]
 margin_left = 46.0
@@ -305,7 +315,7 @@ margin_bottom = 66.0
 custom_fonts/font = SubResource( 7 )
 text = "9:30"
 
-[node name="Button2" type="Button" parent="Desktop"]
+[node name="JunkDrawerOpen" type="Button" parent="Desktop"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -169.0
@@ -319,6 +329,42 @@ custom_styles/pressed = ExtResource( 18 )
 custom_styles/focus = ExtResource( 17 )
 custom_styles/normal = ExtResource( 17 )
 text = "Junk Drawer"
+
+[node name="NotificationDrawerOpen" type="Button" parent="Desktop"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -1741.0
+margin_top = 1025.0
+margin_right = -1643.0
+margin_bottom = 1065.0
+theme = ExtResource( 5 )
+custom_fonts/font = SubResource( 8 )
+custom_styles/hover = ExtResource( 17 )
+custom_styles/pressed = ExtResource( 18 )
+custom_styles/focus = ExtResource( 17 )
+custom_styles/normal = ExtResource( 17 )
+text = "Notifs"
+
+[node name="NotificationDrawer" type="ScrollContainer" parent="Desktop"]
+margin_left = 18.0
+margin_top = 18.0
+margin_right = 400.0
+margin_bottom = 985.0
+scroll_horizontal_enabled = false
+script = ExtResource( 28 )
+
+[node name="PanelContainer" type="PanelContainer" parent="Desktop/NotificationDrawer"]
+margin_right = 382.0
+margin_bottom = 967.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Desktop/NotificationDrawer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 376.0
+margin_bottom = 960.0
+size_flags_horizontal = 3
 
 [node name="ShiftEndPopUp" type="CenterContainer" parent="."]
 visible = false
@@ -366,6 +412,18 @@ margin_right = 327.0
 margin_bottom = 335.0
 text = "Continue"
 
+[node name="Ambiance" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 27 )
+volume_db = -15.0
+autoplay = true
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 24 )
+volume_db = 15.0
+
 [connection signal="pressed" from="Desktop/Center/WindowPanel/Window/Panel/Banhammer/Ban/BanButton" to="." method="_on_post_ban"]
 [connection signal="pressed" from="Desktop/Center/WindowPanel/Window/Panel/Banhammer/Keep/KeepButton" to="." method="_on_post_keep"]
-[connection signal="pressed" from="Desktop/Button2" to="Desktop/Junk Drawer" method="on_button_press"]
+[connection signal="item_activated" from="Desktop/Junk Drawer/Content/TabContainer/Context" to="Desktop/Junk Drawer/Content/TabContainer" method="_on_Context_item_activated"]
+[connection signal="item_activated" from="Desktop/Junk Drawer/Content/TabContainer/Short" to="Desktop/Junk Drawer/Content/TabContainer" method="_on_Short_item_activated"]
+[connection signal="pressed" from="Desktop/JunkDrawerOpen" to="Desktop/Junk Drawer" method="on_button_press"]
+[connection signal="pressed" from="Desktop/NotificationDrawerOpen" to="Desktop/NotificationDrawer" method="_on_NotificationDrawerOpen_pressed"]

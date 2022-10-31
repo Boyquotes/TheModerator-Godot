@@ -1,5 +1,6 @@
 extends Node2D
 
+onready var desktop = get_node("Desktop")
 onready var postText = get_node("Desktop/Center/WindowPanel/Window/Panel/CenterContainer/Post/PostBody")
 onready var postName = get_node("Desktop/Center/WindowPanel/Window/VSplitContainer/Name")
 onready var likes = get_node("Desktop/Center/WindowPanel/Window/Panel/CenterContainer/Post/LikeIcon/LikeCount")
@@ -8,14 +9,18 @@ onready var time = get_node("Desktop/TextureRect/Time")
 onready var posterName = get_node("Desktop/Center/WindowPanel/Window/VSplitContainer/Name")
 onready var end_of_shift_screen = get_node("ShiftEndPopUp")
 onready var junk_drawer = get_node("Desktop/Junk Drawer/Content/TabContainer")
+onready var click_sound = get_node("Click")
+onready var notification_bubble = preload("res://Prefabs/Notification.tscn")
+onready var notification_drawer = get_node("Desktop/NotificationDrawer/PanelContainer/VBoxContainer")
 var content
 var posts
 var postObject : JSONParseResult
 var hour: int = 9
-var minute: int = 0
+var minute: int = 45
 var tick: int = 0
 var time_format = "%d:%d"
 var zero_time_format = "%d:%02d"
+var MAX_NOTIFS : int = 3
 
 # list of first names
 var first_names = ["Liam", "Noah", "Oliver", "Elijah", "William", "Olivia", "Emma", "Charlotte", "Amelia", "Ava"]
@@ -50,9 +55,9 @@ func _ready():
 	# junk_drawer.on_new_post()
 
 func post_fade_in_out():
-	post.fade_out()
+	click_sound.play()
+	post.fade_out().queue_free()
 	yield(get_tree().create_timer(0.8), "timeout")
-	print("success!")
 	new_post()
 	new_name()
 	post.fade_in()
@@ -65,11 +70,17 @@ func _on_post_keep():
 
 func _on_shift_complete():
 	end_of_shift_screen.visible = true
-	get_tree().paused = true
+	desktop.paused = true
+
+func process_events(): 
+	if hour == 10 and minute == 0:
+		new_notif("Boss", "Come to my office right now...")
 
 func _physics_process(delta):
 	tick += 1
+	
 	if tick % 60 == 0:
+		process_events()
 		minute += 1
 	if minute % 60 == 0 and minute != 0:
 		hour += 1
@@ -88,3 +99,7 @@ func _physics_process(delta):
 	if hour == 5:
 		_on_shift_complete()
 
+func new_notif(title : String, body : String):
+	var drawer_notif = notification_bubble.instance()
+	notification_drawer.add_child(drawer_notif)
+	drawer_notif.init(title, body, true)
