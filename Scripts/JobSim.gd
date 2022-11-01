@@ -56,7 +56,7 @@ func _ready():
 
 func post_fade_in_out():
 	click_sound.play()
-	post.fade_out().queue_free()
+	post.fade_out()
 	yield(get_tree().create_timer(0.8), "timeout")
 	new_post()
 	new_name()

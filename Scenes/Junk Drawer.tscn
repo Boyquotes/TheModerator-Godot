@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Scripts/JunkDrawerTween.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Control.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/Vector/person_FILL0_wght400_GRAD0_opsz48.svg" type="Texture" id=7]
 [ext_resource path="res://Materials/ThumbsUp.tres" type="Texture" id=8]
 [ext_resource path="res://Materials/ThumbsUpPressed.tres" type="Texture" id=9]
+[ext_resource path="res://Scripts/ButtonTween.gd" type="Script" id=10]
 [ext_resource path="res://Materials/Panels/Junk Drawer.tres" type="Texture" id=11]
 [ext_resource path="res://Assets/Spritesheets/UI/Prototype Theme.tres" type="Theme" id=12]
 [ext_resource path="res://Assets/Fonts/kenvector_future_thin.ttf" type="DynamicFontData" id=13]
@@ -171,10 +172,11 @@ size_flags_vertical = 3
 margin_left = 207.0
 margin_top = 22.0
 margin_right = 375.0
-margin_bottom = 182.0
+margin_bottom = 183.0
 texture_normal = ExtResource( 15 )
 texture_pressed = ExtResource( 16 )
 texture_hover = ExtResource( 15 )
+script = ExtResource( 10 )
 
 [node name="Keep" type="CenterContainer" parent="Desktop/Center/WindowPanel/Window/Panel/Banhammer"]
 margin_left = 586.0
@@ -186,11 +188,12 @@ size_flags_vertical = 3
 [node name="KeepButton" type="TextureButton" parent="Desktop/Center/WindowPanel/Window/Panel/Banhammer/Keep"]
 margin_left = 207.0
 margin_top = 22.0
-margin_right = 376.0
+margin_right = 375.0
 margin_bottom = 183.0
 texture_normal = ExtResource( 8 )
 texture_pressed = ExtResource( 9 )
 texture_hover = ExtResource( 8 )
+script = ExtResource( 10 )
 
 [node name="VSplitContainer" type="VBoxContainer" parent="Desktop/Center/WindowPanel/Window"]
 margin_left = 13.0
