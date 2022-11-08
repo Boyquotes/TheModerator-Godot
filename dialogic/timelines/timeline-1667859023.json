@@ -1,0 +1,259 @@
+{
+	"events": [
+		{
+			"character": "character-1667858755.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Why hello there sleepyhead, got anything good for me tonight?\nOr is it just nightmares that you pass off as dreams the next morning so you don't have to go to therapy."
+		},
+		{
+			"animation": "1-fade_in.gd",
+			"animation_length": 0.8,
+			"animation_wait": true,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1667858755.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": true,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1667858755.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ah that's much better, now you can finally see me."
+		},
+		{
+			"character": "character-1667858755.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Wait a second..."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "The dream eater gestures towards the woman sleeping next to you."
+		},
+		{
+			"character": "character-1667858755.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Who is this sleeping next to you?"
+		},
+		{
+			"choice": "A girl I met online",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1667858755.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I see, still too much of a pussy to meet girls in real life eh? What is this, your fifth or sixth account on that stupid dating app you still use? You're still hanging on to hope that love might just be in the cards for you? You're such a fucking loser."
+		},
+		{
+			"character": "character-1667858755.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Although I am impressed that you were able to find someone who doesn't have any roommates, AND could host, ESPECIALLY in this economy."
+		},
+		{
+			"choice": "Someone I met at a club",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1667858755.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Oh I see, I see... finally putting on the mask and taking my advice eh? I hope you didn't just cry in the bathroom for most of the night."
+		},
+		{
+			"character": "character-1667858755.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I am impressed that you pulled someone this hot, just goes to show you that all it takes is a little bit of confidence in yourself and you can go far."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Although, lets be real... she's way too hot for you, sixes like you don't just pull a nine like her."
+		},
+		{
+			"character": "character-1667858755.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "This is gonna haunt you until the day you die, you're gonna wish that she never came into your life."
+		},
+		{
+			"choice": "A friend of mine",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1667858755.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "How many friends have you slept with now? This has to be number eight."
+		},
+		{
+			"character": "character-1667858755.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Don't you care about these people? Don't you think these people deserve a real friend, someone who isn't just trying to sleep with them? "
+		},
+		{
+			"character": "character-1667858755.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "The world is about to fucking end and all you care about is how many people you can give head to?"
+		},
+		{
+			"character": "character-1667858755.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I get that it's a lesbian stereotype and all that, but Angel City has so many gay people in it! Get a fucking grip, get yourself out there! "
+		},
+		{
+			"character": "character-1667858755.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "STOP FUCKING YOUR FRIENDS!"
+		},
+		{
+			"choice": "What are you talking about?",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1667858755.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "The girl, sleeping next to you, in this bed...\nWait...\nThis bed isn't even yours!"
+		},
+		{
+			"character": "character-1667858755.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Do you even remember what happened to you last night?"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "So, did you at least have any good dreams tonight? Something that can really fill me up? I'm fucking starving out here."
+		},
+		{
+			"choice": "I did have a dream about a high speed chase on the freeway.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"choice": "There was this one dream where I had a wife, and we lived happily in a cottage together.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"choice": "",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "As the dream eater continues to rattle on, you feel the curtain of R.E.M. sleep slowly lift from your body, as if you were about to perform in front of an audience of your peers. "
+		},
+		{
+			"animation": "4-fade_out.gd",
+			"animation_length": 0.8,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1667858755.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 1,
+			"z_index": 0
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "The dream eater fades away, his taunting nature unable to bother you anymore."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Finally, you awake from your deep slumber, with a throbbing headache from last night's activities. You are stark naked, draped in comforters, blankets, and a duvet alongside your companion for the night. You try to remember her name, but your hangover is getting in the way."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "It is your first day as a moderator,"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "and Angel City is about to explode."
+		},
+		{
+			"change_timeline": "",
+			"event_id": "dialogic_020"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1667859023.json",
+		"name": "Intro"
+	}
+}

@@ -1,0 +1,4 @@
+[submodule "SkriptWriter/godot-cpp"]
+	path = SkriptWriter/godot-cpp
+	url = https://github.com/godotengine/godot-cpp
+	branch = 3.x

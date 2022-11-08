@@ -16,7 +16,7 @@ var content
 var posts
 var postObject : JSONParseResult
 var hour: int = 9
-var minute: int = 45
+var minute: int = 0
 var tick: int = 0
 var time_format = "%d:%d"
 var zero_time_format = "%d:%02d"

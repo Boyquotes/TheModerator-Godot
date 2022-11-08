@@ -5,6 +5,8 @@ var VIEW_Y
 var POS_X
 var POS_Y
 var viewport
+onready var open_sound = get_node("OpenDrawer")
+onready var close_sound = get_node("CloseDrawer")
 
 var open : bool = false
 
@@ -20,12 +22,14 @@ func _ready():
 func on_button_press():
 	print("button pressed!")
 	if open:
+		open_sound.play()
 		var tween := create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 		var tween2 := create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 		tween.tween_property(self, "rect_size", Vector2(0, VIEW_Y), 0.75)
 		tween2.tween_property(self, "rect_position", Vector2(-rect_size.x, POS_Y), 0.75)
 		open = !open
 	else:
+		close_sound.play()
 		var tween := create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 		var tween2 := create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 		tween.tween_property(self, "rect_size", Vector2(VIEW_X, VIEW_Y), 0.75)
