@@ -12,6 +12,7 @@ onready var junk_drawer = get_node("Desktop/Junk Drawer/Content/TabContainer")
 onready var click_sound = get_node("Click")
 onready var notification_bubble = preload("res://Prefabs/Notification.tscn")
 onready var notification_drawer = get_node("Desktop/NotificationDrawer/PanelContainer/VBoxContainer")
+
 var content
 var posts
 var postObject : JSONParseResult
@@ -21,6 +22,10 @@ var tick: int = 0
 var time_format = "%d:%d"
 var zero_time_format = "%d:%02d"
 var MAX_NOTIFS : int = 3
+var posts_evaled : int = 0
+var posts_banned : int = 0
+var posts_kept : int = 0
+var cash : float = 300.00
 
 # list of first names
 var first_names = ["Liam", "Noah", "Oliver", "Elijah", "William", "Olivia", "Emma", "Charlotte", "Amelia", "Ava"]
@@ -63,21 +68,26 @@ func post_fade_in_out():
 	post.fade_in()
 
 func _on_post_ban():
+	posts_banned += 1
 	post_fade_in_out()
 
 func _on_post_keep():
+	posts_kept += 1
 	post_fade_in_out()
 
 func _on_shift_complete():
+	var total_posts = posts_kept + posts_banned
 	end_of_shift_screen.visible = true
-	desktop.paused = true
+	var format_string : String = "Posts Kept: %d\nPosts Banned: %d\nTotal Posts: %d * $1.50 = %d\nTotal Hours Worked: 8 * $12.50 = $100\nTotal Take-home pay: $%d + $100 = $%d"
+	end_of_shift_screen.get_node("Panel/VBoxContainer/Label2").text = format_string % [posts_kept, posts_banned, total_posts, total_posts * 1.50, total_posts * 1.50, total_posts * 1.50 + 100.00 ]
+
 
 func process_events(): 
-	if hour == 10 and minute == 0:
-		new_notif("Boss", "Come to my office right now...")
+	pass
 
 func _physics_process(delta):
-	tick += 1
+	if hour != 5:
+		tick += 1
 	
 	if tick % 60 == 0:
 		process_events()

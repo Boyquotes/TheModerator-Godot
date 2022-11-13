@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Materials/Themes/PrototypeTheme.tres" type="Theme" id=1]
+[ext_resource path="res://Materials/Panels/Window.tres" type="StyleBox" id=2]
+[ext_resource path="res://Assets/Fonts/Signika Negative/static/SignikaNegative-Medium.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Materials/Fonts/RegularFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Scripts/Continue.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=9]
+size = 36
+font_data = ExtResource( 3 )
+
+[node name="ShiftEndPopUp" type="CenterContainer"]
+anchor_left = 0.000520833
+anchor_top = 0.00185185
+anchor_right = 1.00052
+anchor_bottom = 1.00185
+rect_min_size = Vector2( 1920, 1080 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 560.0
+margin_top = 240.0
+margin_right = 1360.0
+margin_bottom = 840.0
+rect_min_size = Vector2( 800, 600 )
+theme = ExtResource( 1 )
+custom_styles/panel = ExtResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -243.0
+margin_top = -267.5
+margin_right = 243.0
+margin_bottom = 267.5
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+margin_top = 123.0
+margin_right = 486.0
+margin_bottom = 168.0
+size_flags_vertical = 6
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 9 )
+text = "Shift Complete!"
+align = 1
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer"]
+margin_top = 296.0
+margin_right = 486.0
+margin_bottom = 497.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Posts Kept: 0
+Posts Banned: 0
+Total Posts: 0 * $1.50 = 0
+Total Hours Worked: 8 * $12.50 = $100
+Total Take-home pay: $0 + $100 = $100
+"
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer"]
+margin_top = 501.0
+margin_right = 486.0
+margin_bottom = 535.0
+text = "Continue"
+script = ExtResource( 5 )
