@@ -1,0 +1,14 @@
+[remap]
+
+importer="snkkid.SpriteSheetImporter"
+type="Resource"
+path="res://.import/portraits.json-d8cbfdae6422a462c4111cacd95a4a30.res"
+
+[deps]
+
+source_file="res://Assets/Spritesheets/portraits.json"
+dest_files=[ "res://.import/portraits.json-d8cbfdae6422a462c4111cacd95a4a30.res" ]
+
+[params]
+
+Import_As_Atlas=true

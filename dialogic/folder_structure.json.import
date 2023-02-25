@@ -1,0 +1,14 @@
+[remap]
+
+importer="snkkid.SpriteSheetImporter"
+type="Resource"
+path="res://.import/folder_structure.json-17b8eda2db534e77647b839eebb705f1.res"
+
+[deps]
+
+source_file="res://dialogic/folder_structure.json"
+dest_files=[ "res://.import/folder_structure.json-17b8eda2db534e77647b839eebb705f1.res" ]
+
+[params]
+
+Import_As_Atlas=true

@@ -1,0 +1,14 @@
+[remap]
+
+importer="snkkid.SpriteSheetImporter"
+type="Resource"
+path="res://.import/deradicalizedPosts.json-639f770232828f4fa20bad74b35ac70c.res"
+
+[deps]
+
+source_file="res://Legacy Posts/deradicalizedPosts.json"
+dest_files=[ "res://.import/deradicalizedPosts.json-639f770232828f4fa20bad74b35ac70c.res" ]
+
+[params]
+
+Import_As_Atlas=true

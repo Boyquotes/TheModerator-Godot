@@ -1,0 +1,14 @@
+[remap]
+
+importer="snkkid.SpriteSheetImporter"
+type="Resource"
+path="res://.import/timeline-1667864444.json-bbec0747dda8bf960e0105d0f70603a6.res"
+
+[deps]
+
+source_file="res://dialogic/timelines/timeline-1667864444.json"
+dest_files=[ "res://.import/timeline-1667864444.json-bbec0747dda8bf960e0105d0f70603a6.res" ]
+
+[params]
+
+Import_As_Atlas=true

@@ -1,0 +1,14 @@
+[remap]
+
+importer="snkkid.SpriteSheetImporter"
+type="Resource"
+path="res://.import/posts.json-a2aab8f16c1282a931f2613bff664bb8.res"
+
+[deps]
+
+source_file="res://Legacy Posts/posts.json"
+dest_files=[ "res://.import/posts.json-a2aab8f16c1282a931f2613bff664bb8.res" ]
+
+[params]
+
+Import_As_Atlas=true

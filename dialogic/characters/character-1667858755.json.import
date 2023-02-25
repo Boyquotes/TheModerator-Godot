@@ -1,0 +1,14 @@
+[remap]
+
+importer="snkkid.SpriteSheetImporter"
+type="Resource"
+path="res://.import/character-1667858755.json-e598f9cb3e9bb8642144d1709d2c4027.res"
+
+[deps]
+
+source_file="res://dialogic/characters/character-1667858755.json"
+dest_files=[ "res://.import/character-1667858755.json-e598f9cb3e9bb8642144d1709d2c4027.res" ]
+
+[params]
+
+Import_As_Atlas=true

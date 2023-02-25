@@ -1,11 +1,11 @@
 [gd_scene load_steps=25 format=2]
 
+[ext_resource path="res://Assets/PNG/portraits/portrait-0.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Control.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Vector/uipackSpace_vector.svg" type="Texture" id=3]
 [ext_resource path="res://Materials/Fonts/RegularFont.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Materials/Themes/PrototypeTheme.tres" type="Theme" id=5]
 [ext_resource path="res://Assets/Vector/favorite_FILL0_wght400_GRAD0_opsz48.svg" type="Texture" id=6]
-[ext_resource path="res://Assets/Vector/person_FILL0_wght400_GRAD0_opsz48.svg" type="Texture" id=7]
 [ext_resource path="res://Materials/ThumbsUp.tres" type="Texture" id=8]
 [ext_resource path="res://Materials/ThumbsUpPressed.tres" type="Texture" id=9]
 [ext_resource path="res://Scripts/ButtonTween.gd" type="Script" id=10]
@@ -133,7 +133,7 @@ margin_right = 170.0
 margin_bottom = 39.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 4 )
-text = "420 likes"
+text = "420"
 
 [node name="Banhammer" type="HBoxContainer" parent="Desktop/Center/WindowPanel/Window/Panel"]
 margin_left = 3.0
@@ -182,15 +182,15 @@ margin_top = 86.0
 margin_right = 305.0
 margin_bottom = 786.0
 
-[node name="TextureRect" type="TextureRect" parent="Desktop/Center/WindowPanel/Window/VSplitContainer"]
+[node name="Portrait" type="TextureRect" parent="Desktop/Center/WindowPanel/Window/VSplitContainer"]
 margin_right = 292.0
-margin_bottom = 144.0
+margin_bottom = 128.0
 rect_min_size = Vector2( 128, 128 )
-texture = ExtResource( 7 )
-stretch_mode = 4
+texture = ExtResource( 1 )
+stretch_mode = 6
 
 [node name="Name" type="RichTextLabel" parent="Desktop/Center/WindowPanel/Window/VSplitContainer"]
-margin_top = 148.0
+margin_top = 132.0
 margin_right = 292.0
 margin_bottom = 700.0
 size_flags_vertical = 3
@@ -230,6 +230,8 @@ volume_db = -15.0
 
 [node name="Click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 24 )
+
+[node name="PostBody" type="Node" parent="."]
 
 [connection signal="pressed" from="Desktop/Center/WindowPanel/Window/Panel/Banhammer/Ban/BanButton" to="." method="_on_post_ban"]
 [connection signal="pressed" from="Desktop/Center/WindowPanel/Window/Panel/Banhammer/Keep/KeepButton" to="." method="_on_post_keep"]

@@ -1,0 +1,14 @@
+[remap]
+
+importer="snkkid.SpriteSheetImporter"
+type="Resource"
+path="res://.import/definitions.json-ad2ebdc974d02493110796f405705441.res"
+
+[deps]
+
+source_file="res://dialogic/definitions.json"
+dest_files=[ "res://.import/definitions.json-ad2ebdc974d02493110796f405705441.res" ]
+
+[params]
+
+Import_As_Atlas=true

@@ -12,6 +12,7 @@ onready var junk_drawer = get_node("Desktop/Junk Drawer/Junk Drawer/Content/TabC
 onready var click_sound = get_node("Click")
 onready var notification_bubble = preload("res://Prefabs/Notification.tscn")
 onready var notification_drawer = get_node("Desktop/NotificationDrawer/PanelContainer/VBoxContainer")
+onready var portrait = get_node("Desktop/Center/WindowPanel/Window/VSplitContainer/Portrait")
 
 var content
 var posts
@@ -26,6 +27,8 @@ var posts_evaled : int = 0
 var posts_banned : int = 0
 var posts_kept : int = 0
 var cash : float = 300.00
+var portrait_strings = []
+var portrait_images = []
 
 # list of first names
 var first_names = ["Liam", "Noah", "Oliver", "Elijah", "William", "Olivia", "Emma", "Charlotte", "Amelia", "Ava"]
@@ -48,6 +51,9 @@ func new_post():
 	postText.text = posts.posts[floor(rand_range(0, posts.posts.size()))]
 	likes.text = str(floor(rand_range(0, 500)))
 	junk_drawer.on_new_post(postText.text)
+	
+	# change portrait texture
+	portrait.texture = load("res://Assets/Spritesheets/portraits.sprites/%s" % portrait_strings[floor(rand_range(0, portrait_strings.size())) as int])
 
 func new_name():
 	var name_format_string = "%s%s %s%s"
@@ -57,7 +63,18 @@ func _ready():
 	loadJSON()
 	parse()
 	postText.text = posts.posts[floor(rand_range(0, posts.posts.size()))]
-	# junk_drawer.on_new_post()
+	var dir = Directory.new()
+	# load portrait filename strings
+	if dir.open("Assets/Spritesheets/portraits.sprites/") == OK:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if file_name.find("import") == -1 and file_name != "." and file_name != "..":
+				portrait_strings.append(file_name)
+			file_name = dir.get_next()
+		
+	else:
+		print("ERROR: Path Assets/PNG/portraits not found.")
 
 func post_fade_in_out():
 	click_sound.play()
@@ -80,7 +97,6 @@ func _on_shift_complete():
 	end_of_shift_screen.visible = true
 	var format_string : String = "Posts Kept: %d\nPosts Banned: %d\nTotal Posts: %d * $1.50 = %d\nTotal Hours Worked: 8 * $12.50 = $100\nTotal Take-home pay: $%d + $100 = $%d"
 	end_of_shift_screen.get_node("Panel/VBoxContainer/Label2").text = format_string % [posts_kept, posts_banned, total_posts, total_posts * 1.50, total_posts * 1.50, total_posts * 1.50 + 100.00 ]
-
 
 func process_events(): 
 	pass
