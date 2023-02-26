@@ -56,8 +56,8 @@ func new_post():
 	portrait.texture = load("res://Assets/Spritesheets/portraits.sprites/%s" % portrait_strings[floor(rand_range(0, portrait_strings.size())) as int])
 
 func new_name():
-	var name_format_string = "%s%s %s%s"
-	posterName.bbcode_text = name_format_string % ["[center]", first_names[floor(rand_range(0, first_names.size()))], last_names[floor(rand_range(0, last_names.size()))], "[/center]"]
+	var name_format_string = "%s %s"
+	posterName.text = name_format_string % [first_names[floor(rand_range(0, first_names.size()))], last_names[floor(rand_range(0, last_names.size()))]]
 
 func _ready():
 	loadJSON()
