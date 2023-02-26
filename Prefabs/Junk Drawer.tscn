@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/JunkDrawer.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sounds/cardTakeOutPackage1.ogg" type="AudioStream" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://Materials/Panels/Junk Drawer.tres" type="Texture" id=5]
 [ext_resource path="res://Assets/Sounds/cardTakeOutPackage2.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Assets/Sounds/switch38.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Materials/Fonts/RegularFont.tres" type="DynamicFont" id=8]
+[ext_resource path="res://Materials/Panels/WhitePanel.tres" type="Texture" id=9]
+[ext_resource path="res://Prefabs/TreeCommunicator.gd" type="Script" id=11]
 
 [node name="Node" type="Node"]
 
@@ -40,6 +43,7 @@ margin_bottom = 911.0
 size_flags_vertical = 3
 tab_align = 0
 script = ExtResource( 1 )
+DEBUG = true
 
 [node name="Context" type="Tree" parent="Junk Drawer/Content/TabContainer"]
 anchor_right = 1.0
@@ -48,6 +52,7 @@ margin_left = 6.0
 margin_top = 38.0
 margin_right = -6.0
 margin_bottom = -10.0
+script = ExtResource( 11 )
 
 [node name="Short" type="Tree" parent="Junk Drawer/Content/TabContainer"]
 visible = false
@@ -112,6 +117,54 @@ margin_right = -58.0
 margin_bottom = -17.0
 text = "Junk Drawer"
 
+[node name="DescriptionPanel" type="NinePatchRect" parent="."]
+margin_left = -1254.0
+margin_top = 54.0
+margin_right = -21.0
+margin_bottom = 996.0
+texture = ExtResource( 9 )
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+script = ExtResource( 4 )
+left_right = true
+enable_defined_pos = true
+defined_pos = Vector2( 0, 54 )
+
+[node name="Title" type="RichTextLabel" parent="DescriptionPanel"]
+anchor_top = 0.007
+anchor_right = 0.814
+anchor_bottom = 0.043
+margin_top = 7.406
+margin_right = -52.0161
+margin_bottom = 7.454
+theme = ExtResource( 3 )
+bbcode_enabled = true
+bbcode_text = "[center]Junk Drawer[/center]"
+
+[node name="Content" type="Label" parent="DescriptionPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -200.0
+margin_right = 300.0
+margin_bottom = 200.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 8 )
+text = "\"The world of The Moderator is loosely based on my experience growing up in Orange County, California. As a trans woman I have felt isolated from the greater queer and trans community living here, and most of my trans friends live either out of state or in the Bay Area.\""
+valign = 1
+autowrap = true
+
+[node name="CloseDrawer" type="AudioStreamPlayer" parent="DescriptionPanel"]
+stream = ExtResource( 6 )
+
+[node name="OpenDrawer" type="AudioStreamPlayer" parent="DescriptionPanel"]
+stream = ExtResource( 2 )
+
 [connection signal="item_activated" from="Junk Drawer/Content/TabContainer/Context" to="Junk Drawer/Content/TabContainer" method="_on_Context_item_activated"]
 [connection signal="item_activated" from="Junk Drawer/Content/TabContainer/Short" to="Junk Drawer/Content/TabContainer" method="_on_Short_item_activated"]
 [connection signal="pressed" from="Button" to="Junk Drawer" method="on_button_press"]
+[connection signal="pressed" from="Button" to="DescriptionPanel" method="on_button_press"]
