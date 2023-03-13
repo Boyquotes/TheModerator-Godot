@@ -13,6 +13,7 @@ onready var click_sound = get_node("Click")
 onready var notification_bubble = preload("res://Prefabs/Notification.tscn")
 onready var notification_drawer = get_node("Desktop/NotificationDrawer/PanelContainer/VBoxContainer")
 onready var portrait = get_node("Desktop/Center/WindowPanel/Window/VSplitContainer/Portrait")
+onready var pause_menu = get_node("PauseMenu")
 
 var content
 var posts
@@ -124,6 +125,10 @@ func _physics_process(delta):
 		hour = 1
 	if hour == 5:
 		_on_shift_complete()
+	
+	if Input.is_action_pressed("pause"):
+		pause_menu.visible = true
+		get_tree().paused = true
 
 func new_notif(title : String, body : String):
 	var drawer_notif = notification_bubble.instance()

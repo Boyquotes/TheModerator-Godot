@@ -66,5 +66,8 @@ Total Take-home pay: $0 + $100 = $100
 margin_top = 501.0
 margin_right = 486.0
 margin_bottom = 535.0
-text = "Continue"
+text = "Main Menu"
 script = ExtResource( 5 )
+scene_name = "res://Scenes/TitleScreen.tscn"
+
+[connection signal="pressed" from="Panel/VBoxContainer/Button" to="Panel/VBoxContainer/Button" method="_on_Button_pressed"]
